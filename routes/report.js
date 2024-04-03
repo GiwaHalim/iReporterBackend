@@ -11,9 +11,8 @@ router.get('/', async (req, res) => {
     try{
         await Report.find({}).then((data) => { res.send(data)})
     } catch(err){
-        console.error(err)
+        res.send(err)
     }
-    console.log(req.body)
 })
 
 router.get('/:user', async (req, res) => {
@@ -23,8 +22,26 @@ router.get('/:user', async (req, res) => {
         await Report.find({userId: params}).then((data) => { res.send(data)})
 
     }catch(err) {
-        console.error(err)
+        res.send(err)
     }
+})
+
+router.delete('/:id', async (req, res) => {
+    try{
+      const { id } = req.params;
+      const deletedDocument = await Report.findByIdAndDelete(id);
+
+      if (!deletedDocument) {
+        return res.status(404).send({ error: 'Document not found' });
+      }
+
+      res.send(deletedDocument)
+
+    } catch(err){
+        console.error('Error deleting document:', err);
+      res.status(500).send({ error: 'Internal Server Error' });
+    }
+
 })
 
 router.post('/', (req, res) => {
@@ -42,7 +59,6 @@ router.post('/', (req, res) => {
     })
 
     report.save()
-    console.log('hii')
     res.send(req.body)
 
 })
@@ -53,9 +69,9 @@ router.put('/:id', async (req, res) => {
       const newData = req.body;
       const updatedData = await Report.findByIdAndUpdate(id, newData, { new: true });
       res.send(updatedData);
-    } catch (error) {
-      console.error('Error updating document:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+    } catch (err) {
+      console.error('Error updating document:', err);
+      res.status(500).send({ error: 'Internal Server Error' });
     }
     
 
