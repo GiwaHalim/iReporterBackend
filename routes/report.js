@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     try{
         await Report.find({}).then((data) => { res.send(data)})
     } catch(err){
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
@@ -22,7 +22,7 @@ router.get('/:user', async (req, res) => {
         await Report.find({userId: params}).then((data) => { res.send(data)})
 
     }catch(err) {
-        res.send(err)
+        res.status(500).send(err)
     }
 })
 
