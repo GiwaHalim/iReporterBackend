@@ -13,7 +13,10 @@ if(!config.get('jwtPrivateKey')){
     process.exit(1)
 }
 
-mongoose.connect('mongodb://localhost:27017/ireporter').then(()=>{console.log('connected')}).catch(err => console.error('could not connect'))
+const mongoUrl = "mongodb+srv://iReporteradmin:12345@cluster07126.vzblzil.mongodb.net/?retryWrites=true&w=majority&appName=Cluster07126"
+
+
+mongoose.connect(mongoUrl).then(()=>{console.log('connected')}).catch(err => console.error('could not connect'))
 
 app.use(cors())
 app.use(express.json())
@@ -21,9 +24,10 @@ app.use('/', home)
 app.use('/api/user', user)
 app.use('/api/auth', auth)
 app.use('/api/report', report)
-// console.log(process.env.production)
+
+// delete process.env.vidly_jwtPrivateKey
+// console.log(process.env)
 
 const port = process.env.PORT || 3005;
 app.listen(port, ()=> console.log(`Listening on port ${port}...`))
-
 
