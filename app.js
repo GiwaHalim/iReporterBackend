@@ -21,6 +21,7 @@ app.use('/', home)
 app.use('/api/user', user)
 app.use('/api/auth', auth)
 app.use('/api/report', report)
+// console.log(process.env.production)
 
 const port = process.env.PORT || 3005;
 app.listen(port, ()=> console.log(`Listening on port ${port}...`))
