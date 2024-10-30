@@ -3,30 +3,24 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
+const auth = require('../middleware/auth')
 
 
-router.get('/', async (req, res) => {
-
-
-    try{
+router.get('/', auth,  async (req, res, next) => {
         await Report.find({}).then((data) => { res.send(data)})
-    } catch(err){
-        res.status(500).send(err)
-    }
 })
 
-router.get('/:user', async (req, res) => {
-    
+router.get('/:user', auth, async (req, res, next) => {
     const params = req.params.user
-    try{
-        await Report.find({userId: params}).then((data) => { res.send(data)})
 
-    }catch(err) {
-        res.status(500).send(err)
-    }
+    console.log(params)
+
+    await Report.find({userId: params}).then((data) => { res.send(data)})
+
+   
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res, next) => {
     try{
       const { id } = req.params;
       const deletedDocument = await Report.findByIdAndDelete(id);
@@ -38,13 +32,12 @@ router.delete('/:id', async (req, res) => {
       res.send(deletedDocument)
 
     } catch(err){
-        console.error('Error deleting document:', err);
-      res.status(500).send({ error: 'Internal Server Error' });
+        next(err)
     }
 
 })
 
-router.post('/', (req, res) => {
+router.post('/', auth, async (req, res, next) => {
     const result = validate(req.body);
 
     if (result.error) return res.status(400).send(result.error.details[0].message);
@@ -58,20 +51,25 @@ router.post('/', (req, res) => {
         userId: req.body.userId
     })
 
-    report.save()
-    res.send(req.body)
+    try{
+      const reportResult = await report.save()
+      res.send(reportResult)
+    }catch(ex){
+      next(err)
+    }
+
+    
 
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res, next) => {
     try {
       const { id } = req.params;
       const newData = req.body;
       const updatedData = await Report.findByIdAndUpdate(id, newData, { new: true });
       res.send(updatedData);
     } catch (err) {
-      console.error('Error updating document:', err);
-      res.status(500).send({ error: 'Internal Server Error' });
+      next(err)
     }
     
 
