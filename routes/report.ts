@@ -1,26 +1,25 @@
-const Report = require('../model/reportModel');
-const mongoose = require('mongoose');
-const express = require('express');
+import Report from '../model/reportModel';
+import mongoose from 'mongoose';
+import express from 'express';
+import Joi from 'joi';
+import auth from '../middleware/auth';
+
 const router = express.Router();
-const Joi = require('joi');
-const auth = require('../middleware/auth')
 
 
 router.get('/', auth,  async (req, res, next) => {
         await Report.find({}).then((data) => { res.send(data)})
 })
 
-router.get('/:user', auth, async (req, res, next) => {
+router.get('/:user', async (req, res, next) => {
     const params = req.params.user
-
-    console.log(params)
 
     await Report.find({userId: params}).then((data) => { res.send(data)})
 
    
 })
 
-router.delete('/:id', auth, async (req, res, next) => {
+router.delete('/:id', async (req: any, res: any, next) => {
     try{
       const { id } = req.params;
       const deletedDocument = await Report.findByIdAndDelete(id);
@@ -37,12 +36,11 @@ router.delete('/:id', auth, async (req, res, next) => {
 
 })
 
-router.post('/', auth, async (req, res, next) => {
+router.post('/', auth, async (req: any, res: any, next) => {
     const result = validate(req.body);
-
     if (result.error) return res.status(400).send(result.error.details[0].message);
 
-    report = new Report({
+    const report = new Report({
         title: req.body.title,
         description: req.body.description,
         type: req.body.type,
@@ -55,7 +53,7 @@ router.post('/', auth, async (req, res, next) => {
       const reportResult = await report.save()
       res.send(reportResult)
     }catch(ex){
-      next(err)
+      next(ex)
     }
 
     
@@ -87,4 +85,4 @@ function validate(report) {
       })
     }
 
-module.exports = router
+export default router

@@ -1,14 +1,14 @@
-const logger = require('../logger')
+import logger from '../logger';
 
 
-module.exports = function(){
-    process.on('uncaughtException', (err)=>{
+export default function(){
+    process.on('uncaughtException', (err: any)=>{
         console.log('We caught an uncaught exception ')
         logger.error(err.message, err)
         process.exit(1)
     })
     
-    process.on('unhandledRejection', (err) => {
+    process.on('unhandledRejection', (err: any) => {
         console.log('We caught an unhandled rejection ')
         logger.error(err.message, err)
         process.exit(1)

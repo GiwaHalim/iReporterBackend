@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
     email: String,
-    name: String,
     password: String,
     Address: String,
     city: String,
@@ -25,7 +24,6 @@ const User = mongoose.model('User', userSchema)
 function validateUser(user) {
     const validationSchema = Joi.object({
         email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
-        name: Joi.string().required(),
         password: Joi.string().required(),
         address: Joi.string().required(),
         city: Joi.string().required(),

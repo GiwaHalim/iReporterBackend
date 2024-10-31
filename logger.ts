@@ -1,8 +1,8 @@
-const winston = require('winston');
-require('winston-mongodb')
+import winston from 'winston';
+import 'winston-mongodb';
 
 
-module.exports = winston.createLogger({
+export default winston.createLogger({
     format: winston.format.json(),
     transports: [
       new winston.transports.File({ filename: 'error.log'}),

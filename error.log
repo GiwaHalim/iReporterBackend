@@ -70,3 +70,57 @@
 {"level":"info","message":"Connected to mongodb://localhost:27017/ireporter_tests"}
 {"level":"info","message":"Listening on port 3005..."}
 {"level":"info","message":"Connected to mongodb://localhost:27017/ireporter_tests"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:27:16"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:27:16"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:27:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:30:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at /Users/giwahalim/Desktop/ireporter_backend/routes/auth.js:28:16"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}
+{"level":"info","message":"Listening on port 3005..."}
+{"level":"info","message":"Connected to mongodb://localhost:27017/"}

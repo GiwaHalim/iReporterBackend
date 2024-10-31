@@ -1,17 +1,17 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
-const express = require('express');
+import config from 'config';
+import jwt from 'jsonwebtoken';
+import express from 'express';
+import mongoose from 'mongoose';
+import { User, validateUser } from '../model/usersModel';
+import bcrypt from 'bcrypt';
+
 const router = express.Router();
-const mongoose = require('mongoose');
-const {User, validateUser} = require('../model/usersModel');
-const bcrypt = require('bcrypt');
 
 
 
-router.post('/', async (req, res) => {
+
+router.post('/', async (req: any, res: any, next) => {
     const result = validateUser(req.body)
-    console.log(req.body)
-    
     if (result.error) return res.status(400).send(result.error.details[0].message);
     
     try{
@@ -26,7 +26,6 @@ router.post('/', async (req, res) => {
         
         user = new User({
             email: req.body.email,
-            name: req.body.name,
             password: hash,
             address: req.body.address,
             city: req.body.city,
@@ -55,4 +54,4 @@ router.post('/', async (req, res) => {
     
     
     
-module.exports = router;
+export default router;
